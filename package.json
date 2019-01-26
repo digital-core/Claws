@@ -11,7 +11,9 @@
     "status": "pm2 list",
     "build-dev-dependencies": "browserify ./libs/salsa20.js -o ./public/salsa20.min.js",
     "build": "node build.js",
-    "dev": "npm run build-dev-dependencies && cross-env NODE_ENV=development nodemon --inspect server.js"
+    "dev": "npm run build-dev-dependencies && cross-env NODE_ENV=development nodemon --inspect server.js",
+    "build-web": "browserify src/app/index.js -t babelify -o public/bundle.js",
+    "watch-web": "watchify src/app/index.js -t babelify -o public/bundle.js"
   },
   "dependencies": {
     "app-root-path": "^2.1.0",
@@ -24,6 +26,9 @@
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "express-sse": "^0.5.0",
+    "inferno": "^7.1.0",
+    "inferno-redux": "^7.1.0",
+    "inferno-router": "^7.1.0",
     "js-salsa20": "^1.0.0",
     "jsonwebtoken": "^8.3.0",
     "m3u8-stream-list": "^1.1.0",
@@ -33,15 +38,25 @@
     "os-utils": "0.0.14",
     "random-useragent": "^0.3.1",
     "rate-limiter-flexible": "^0.19.4",
+    "redux": "^4.0.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
     "winston": "^3.1.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/runtime": "^7.3.1",
+    "babel-core": "^6.26.3",
+    "babel-plugin-inferno": "^6.0.4",
+    "babelify": "^10.0.0",
     "browserify": "^16.2.3",
     "cross-env": "^5.2.0",
+    "nodemon": "^1.14.4",
     "pm2": "^3.2.2",
-    "nodemon": "^1.14.4"
+    "watchify": "^3.11.0"
   },
   "eslintConfig": {
     "root": true,

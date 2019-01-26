@@ -47,6 +47,15 @@ app.get('/', function(req, res) {
         res.sendFile(`${pathToApp}/public/index.html`);
     }
 });
+app.get('/search', (req, res) => {
+    res.sendFile(`${pathToApp}/public/index.html`);
+});
+app.get('/player', (req, res) => {
+    res.sendFile(`${pathToApp}/public/index.html`);
+});
+app.get('/manualplay', (req, res) => {
+    res.sendFile(`${pathToApp}/public/index.html`);
+});
 app.get('/:file', (req, res) => {
     const options = {};
     if (req.params.file.endsWith('.wasm')) {
