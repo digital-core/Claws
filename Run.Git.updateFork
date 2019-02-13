@@ -1,0 +1,21 @@
+#!/bin/bash
+gitRemoteOrigin=https://github.com/ApolloTVofficial/Claws.git
+gitFetchRemote=original
+gitFetchBranch=master
+gitPushRemote=origin
+gitPushBranch=master
+
+echo Adding remote original...
+echo $gitRemoteOrigin
+git remote add original https://github.com/ApolloTVofficial/Claws.git
+echo Fetching $gitFetchRemote
+git fetch original
+echo Checking out $gitFetchBranch
+git checkout master
+echo Rebase $gitFetchRemote/$gitFetchBranch...
+git rebase original/master
+echo Mrging $gitFetchRemote/$gitFetchBranch...
+git merge original/master
+echo PUshing to $gitPushRemote $gitPushBranch...
+git push -f origin master
+
